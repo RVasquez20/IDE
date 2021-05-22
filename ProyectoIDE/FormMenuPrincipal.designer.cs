@@ -58,6 +58,7 @@
             this.fUENTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aYUDAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iRAToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bUSCARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aYUDAToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aCERCADEBANSAITEXTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,7 +75,8 @@
             this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
             this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
-            this.bUSCARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.panelContenedorPrincipal.SuspendLayout();
             this.panelContenedorForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox1)).BeginInit();
@@ -151,6 +153,9 @@
             this.fastColoredTextBox1.WordWrap = true;
             this.fastColoredTextBox1.Zoom = 100;
             this.fastColoredTextBox1.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.fastColoredTextBox1_TextChanged);
+            this.fastColoredTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fastColoredTextBox1_KeyDown);
+            this.fastColoredTextBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fastColoredTextBox1_KeyPress);
+            this.fastColoredTextBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.fastColoredTextBox1_KeyUp);
             // 
             // panel1
             // 
@@ -195,7 +200,6 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(230, 557);
             this.panelMenu.TabIndex = 2;
-            this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
             // 
             // menuStrip1
             // 
@@ -215,7 +219,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 108);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(156, 241);
+            this.menuStrip1.Size = new System.Drawing.Size(156, 222);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -285,6 +289,7 @@
             this.iMPRIMIRToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
             this.iMPRIMIRToolStripMenuItem.Size = new System.Drawing.Size(278, 26);
             this.iMPRIMIRToolStripMenuItem.Text = "IMPRIMIR";
+            this.iMPRIMIRToolStripMenuItem.Click += new System.EventHandler(this.iMPRIMIRToolStripMenuItem_Click);
             // 
             // eDITARToolStripMenuItem
             // 
@@ -314,6 +319,7 @@
             this.cOPIARToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.cOPIARToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.cOPIARToolStripMenuItem.Text = "ATRAS";
+            this.cOPIARToolStripMenuItem.Click += new System.EventHandler(this.cOPIARToolStripMenuItem_Click);
             // 
             // pEGARToolStripMenuItem
             // 
@@ -416,8 +422,15 @@
             // iRAToolStripMenuItem1
             // 
             this.iRAToolStripMenuItem1.Name = "iRAToolStripMenuItem1";
-            this.iRAToolStripMenuItem1.Size = new System.Drawing.Size(180, 26);
+            this.iRAToolStripMenuItem1.Size = new System.Drawing.Size(144, 26);
             this.iRAToolStripMenuItem1.Text = "IR A";
+            // 
+            // bUSCARToolStripMenuItem
+            // 
+            this.bUSCARToolStripMenuItem.Name = "bUSCARToolStripMenuItem";
+            this.bUSCARToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.bUSCARToolStripMenuItem.Text = "BUSCAR";
+            this.bUSCARToolStripMenuItem.Click += new System.EventHandler(this.bUSCARToolStripMenuItem_Click);
             // 
             // aYUDAToolStripMenuItem1
             // 
@@ -598,12 +611,20 @@
             this.tmFechaHora.Enabled = true;
             this.tmFechaHora.Tick += new System.EventHandler(this.tmFechaHora_Tick);
             // 
-            // bUSCARToolStripMenuItem
+            // printDocument1
             // 
-            this.bUSCARToolStripMenuItem.Name = "bUSCARToolStripMenuItem";
-            this.bUSCARToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.bUSCARToolStripMenuItem.Text = "BUSCAR";
-            this.bUSCARToolStripMenuItem.Click += new System.EventHandler(this.bUSCARToolStripMenuItem_Click);
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
             // 
             // FormMenuPrincipal
             // 
@@ -682,6 +703,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button label2;
         private System.Windows.Forms.ToolStripMenuItem bUSCARToolStripMenuItem;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }
 

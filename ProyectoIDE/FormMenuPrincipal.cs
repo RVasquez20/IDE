@@ -46,7 +46,7 @@ namespace ProyectoIDE
         int nb_result = 0;
 
         internal static string variableCom = "";
-        
+        //Iniciar form de DOM
         bool confi = true;
         //Constructor
         public FormMenuPrincipal()
@@ -302,11 +302,146 @@ namespace ProyectoIDE
             fastColoredTextBox1.ShowFindDialog();
         }
 
-        private void panelMenu_Paint(object sender, PaintEventArgs e)
+        private void iMPRIMIRToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString(fastColoredTextBox1.Text, new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(100, 100));
+        }
+
+        private void fastColoredTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            int cont_abre_etiqueta = 0;
+            int cont_cierra_etiqueta = 0;
+            string texto = fastColoredTextBox1.Text;
+            char[] array = texto.ToCharArray();//separa en letras
+            string error = "Cierre todas las etiquetas";
+            string[] stringSeparators = new string[] { " ", "<", ">" };
+            string[] array2 = texto.Split(stringSeparators, StringSplitOptions.None);//separa las palabras
+            string busc = "";
+
+            if (e.KeyCode == Keys.Up)
+            {
+                foreach (var p in array2)
+                {
+                    busc = p;
+                    for (int i = 0; i < Reservadas.Length; i++)//para comparar cuando se abre la etiqueta
+                    {
+                        if (busc == Reservadas[i].ToString())
+                        {
+                            cont_abre_etiqueta++;
+                            int a = fastColoredTextBox1.Text.IndexOf(busc);
+
+
+                        }
+                    }
+                    for (int j = 0; j < Cierre_Reservadas.Length; j++)//para comparar cuando se cierra la etiqueta
+                    {
+                        if (busc == Cierre_Reservadas[j].ToString())
+                        {
+                            cont_cierra_etiqueta++;
+                        }
+                    }
+                    busc = "";
+                }
+
+                if (cont_abre_etiqueta > 0 && cont_cierra_etiqueta > 0)
+                {
+                    if (cont_abre_etiqueta == cont_cierra_etiqueta)
+                    {
+                        variableCom = fastColoredTextBox1.Text;
+                        /* frm.Refresh();
+                         frm.Activate();
+                         frm.Show();*/
+                    }
+                    else
+                    {
+                        MessageBox.Show(error);
+                    }
+                }
+            }
 
         }
 
+        private void fastColoredTextBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            int cont_abre_etiqueta = 0;
+            int cont_cierra_etiqueta = 0;
+            string texto = fastColoredTextBox1.Text;
+            char[] array = texto.ToCharArray();//separa en letras
+            string error = "Cierre todas las etiquetas";
+            string[] stringSeparators = new string[] { " ", "<", ">" };
+            string[] array2 = texto.Split(stringSeparators, StringSplitOptions.None);//separa las palabras
+            string busc = "";
+
+            if (e.KeyCode == Keys.Delete)
+            {
+                foreach (var p in array2)
+                {
+                    busc = p;
+                    for (int i = 0; i < Reservadas.Length; i++)//para comparar cuando se abre la etiqueta
+                    {
+                        if (busc == Reservadas[i].ToString())
+                        {
+                            cont_abre_etiqueta++;
+                            int a = fastColoredTextBox1.Text.IndexOf(busc);
+
+
+                        }
+                    }
+                    for (int j = 0; j < Cierre_Reservadas.Length; j++)//para comparar cuando se cierra la etiqueta
+                    {
+                        if (busc == Cierre_Reservadas[j].ToString())
+                        {
+                            cont_cierra_etiqueta++;
+                        }
+                    }
+                    busc = "";
+                }
+
+                if (cont_abre_etiqueta > 0 && cont_cierra_etiqueta > 0)
+                {
+                    if (cont_abre_etiqueta == cont_cierra_etiqueta)
+                    {
+                        variableCom = fastColoredTextBox1.Text;
+                        /*frm.Refresh();
+                        frm.Activate();
+                        frm.Show();*/
+                    }
+                    else
+                    {
+                        MessageBox.Show(error);
+                    }
+                }
+            }
+        }
+        int s1 = 0, s2 = 0, s3 = 0;
+        bool div = false;
+        private void fastColoredTextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.ToString() == Convert.ToString("/"))
+            {
+                div = true;
+            }
+            if (e.KeyChar.ToString() == Convert.ToString(">") && div == true)
+            {
+                div = false;
+                MessageBox.Show("funciona");
+            }
+        }
+
+        private void cOPIARToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Undo();
+        }
+
+       
 
         //METODO PARA HORA Y FECHA ACTUAL ----------------------------------------------------------
         private void tmFechaHora_Tick(object sender, EventArgs e)
