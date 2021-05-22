@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{43ED8607-153A-42D7-9F32-9985121B1828}</ProjectGuid>
+    <ProjectGuid>{BF2FB4A7-DF92-4BD3-BC99-53F6EB810E71}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ProyectoIDE</RootNamespace>
     <AssemblyName>ProyectoIDE</AssemblyName>
@@ -34,11 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FastColoredTextBox">
-      <HintPath>..\..\..\..\Downloads\Compressed\FastColoredTextBox\FastColoredTextBox.dll</HintPath>
+      <HintPath>..\..\..\UMG\ModernFlat-GUI-Version-Completa-C-Sharp\COMPLETE_FLAT_UI\bin\Debug\FastColoredTextBox.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,16 +49,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormMenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormMenuPrincipal.designer.cs">
+      <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormMenuPrincipal.resx">
+      <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -82,6 +81,34 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\APs.PNG" />
+    <Content Include="Resources\Close.png" />
+    <Content Include="Resources\Dashboard.PNG" />
+    <Content Include="Resources\icono-cliente.png" />
+    <Content Include="Resources\logoUI.png" />
+    <Content Include="Resources\logoUI2.png" />
+    <Content Include="Resources\maximize.png" />
+    <Content Include="Resources\maximize2.png" />
+    <Content Include="Resources\maximize3.png" />
+    <Content Include="Resources\Membresia.PNG" />
+    <Content Include="Resources\menu.png" />
+    <Content Include="Resources\menu2.png" />
+    <Content Include="Resources\Minimize.png" />
+    <Content Include="Resources\Minimize1.png" />
+    <Content Include="Resources\new logo.png" />
+    <Content Include="Resources\new logo1.png" />
+    <Content Include="Resources\new logo2.png" />
+    <Content Include="Resources\new logo3.png" />
+    <Content Include="Resources\new logo4.png" />
+    <Content Include="Resources\new logo5.png" />
+    <Content Include="Resources\Normal.png" />
+    <Content Include="Resources\perfil.png" />
+    <Content Include="Resources\Planes.PNG" />
+    <Content Include="Resources\satellite-dish %281%29.png" />
+    <Content Include="Resources\satellite-dish.png" />
+    <Content Include="Resources\shut-down.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
