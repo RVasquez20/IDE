@@ -45,22 +45,21 @@
             this.gUARDARCOMOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iMPRIMIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eDITARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cOPIARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pEGARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aTRASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aDELANTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AtrasoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adelanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cortarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pEGARToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sELECIONARTODOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eLIMINARTODOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEEMPLAZARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hORAYFECHAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vERToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fUENTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aYUDAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iRAToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.bUSCARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aYUDAToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aCERCADEBANSAITEXTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AcercaDelIDe = new System.Windows.Forms.ToolStripMenuItem();
             this.pppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenu = new System.Windows.Forms.PictureBox();
             this.PanelBarraTitulo = new System.Windows.Forms.Panel();
@@ -77,6 +76,7 @@
             this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.panelContenedorPrincipal.SuspendLayout();
             this.panelContenedorForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox1)).BeginInit();
@@ -294,15 +294,14 @@
             // eDITARToolStripMenuItem
             // 
             this.eDITARToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cOPIARToolStripMenuItem,
-            this.pEGARToolStripMenuItem,
-            this.aTRASToolStripMenuItem,
-            this.aDELANTEToolStripMenuItem,
+            this.AtrasoolStripMenuItem,
+            this.adelanteToolStripMenuItem,
+            this.copiarToolStripMenuItem,
+            this.cortarToolStripMenuItem,
             this.pEGARToolStripMenuItem1,
             this.sELECIONARTODOToolStripMenuItem,
             this.eLIMINARTODOToolStripMenuItem,
-            this.rEEMPLAZARToolStripMenuItem,
-            this.hORAYFECHAToolStripMenuItem});
+            this.rEEMPLAZARToolStripMenuItem});
             this.eDITARToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eDITARToolStripMenuItem.ForeColor = System.Drawing.Color.Snow;
             this.eDITARToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("eDITARToolStripMenuItem.Image")));
@@ -312,38 +311,41 @@
             this.eDITARToolStripMenuItem.Size = new System.Drawing.Size(149, 36);
             this.eDITARToolStripMenuItem.Text = "   EDITAR";
             // 
-            // cOPIARToolStripMenuItem
+            // AtrasoolStripMenuItem
             // 
-            this.cOPIARToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cOPIARToolStripMenuItem.Image")));
-            this.cOPIARToolStripMenuItem.Name = "cOPIARToolStripMenuItem";
-            this.cOPIARToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.cOPIARToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
-            this.cOPIARToolStripMenuItem.Text = "ATRAS";
-            this.cOPIARToolStripMenuItem.Click += new System.EventHandler(this.cOPIARToolStripMenuItem_Click);
+            this.AtrasoolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("AtrasoolStripMenuItem.Image")));
+            this.AtrasoolStripMenuItem.Name = "AtrasoolStripMenuItem";
+            this.AtrasoolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
+            this.AtrasoolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.AtrasoolStripMenuItem.Text = "ATRAS";
+            this.AtrasoolStripMenuItem.Click += new System.EventHandler(this.AtrasoolStripMenuItem_Click);
             // 
-            // pEGARToolStripMenuItem
+            // adelanteToolStripMenuItem
             // 
-            this.pEGARToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pEGARToolStripMenuItem.Image")));
-            this.pEGARToolStripMenuItem.Name = "pEGARToolStripMenuItem";
-            this.pEGARToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.pEGARToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
-            this.pEGARToolStripMenuItem.Text = "ADELANTE";
+            this.adelanteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("adelanteToolStripMenuItem.Image")));
+            this.adelanteToolStripMenuItem.Name = "adelanteToolStripMenuItem";
+            this.adelanteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
+            this.adelanteToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.adelanteToolStripMenuItem.Text = "ADELANTE";
+            this.adelanteToolStripMenuItem.Click += new System.EventHandler(this.adelanteToolStripMenuItem_Click);
             // 
-            // aTRASToolStripMenuItem
+            // copiarToolStripMenuItem
             // 
-            this.aTRASToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aTRASToolStripMenuItem.Image")));
-            this.aTRASToolStripMenuItem.Name = "aTRASToolStripMenuItem";
-            this.aTRASToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.aTRASToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
-            this.aTRASToolStripMenuItem.Text = "COPIAR";
+            this.copiarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copiarToolStripMenuItem.Image")));
+            this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
+            this.copiarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.copiarToolStripMenuItem.Text = "COPIAR";
+            this.copiarToolStripMenuItem.Click += new System.EventHandler(this.copiarToolStripMenuItem_Click);
             // 
-            // aDELANTEToolStripMenuItem
+            // cortarToolStripMenuItem
             // 
-            this.aDELANTEToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aDELANTEToolStripMenuItem.Image")));
-            this.aDELANTEToolStripMenuItem.Name = "aDELANTEToolStripMenuItem";
-            this.aDELANTEToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.aDELANTEToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
-            this.aDELANTEToolStripMenuItem.Text = "CORTAR";
+            this.cortarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cortarToolStripMenuItem.Image")));
+            this.cortarToolStripMenuItem.Name = "cortarToolStripMenuItem";
+            this.cortarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
+            this.cortarToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.cortarToolStripMenuItem.Text = "CORTAR";
+            this.cortarToolStripMenuItem.Click += new System.EventHandler(this.cortarToolStripMenuItem_Click);
             // 
             // pEGARToolStripMenuItem1
             // 
@@ -352,6 +354,7 @@
             this.pEGARToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
             this.pEGARToolStripMenuItem1.Size = new System.Drawing.Size(296, 26);
             this.pEGARToolStripMenuItem1.Text = "PEGAR";
+            this.pEGARToolStripMenuItem1.Click += new System.EventHandler(this.pEGARToolStripMenuItem1_Click);
             // 
             // sELECIONARTODOToolStripMenuItem
             // 
@@ -360,6 +363,7 @@
             this.sELECIONARTODOToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
             this.sELECIONARTODOToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.sELECIONARTODOToolStripMenuItem.Text = "SELECIONAR TODO";
+            this.sELECIONARTODOToolStripMenuItem.Click += new System.EventHandler(this.sELECIONARTODOToolStripMenuItem_Click);
             // 
             // eLIMINARTODOToolStripMenuItem
             // 
@@ -369,6 +373,7 @@
             | System.Windows.Forms.Keys.X)));
             this.eLIMINARTODOToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.eLIMINARTODOToolStripMenuItem.Text = "ELIMINAR TODO";
+            this.eLIMINARTODOToolStripMenuItem.Click += new System.EventHandler(this.eLIMINARTODOToolStripMenuItem_Click);
             // 
             // rEEMPLAZARToolStripMenuItem
             // 
@@ -376,13 +381,7 @@
             this.rEEMPLAZARToolStripMenuItem.Name = "rEEMPLAZARToolStripMenuItem";
             this.rEEMPLAZARToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
             this.rEEMPLAZARToolStripMenuItem.Text = "REEMPLAZAR";
-            // 
-            // hORAYFECHAToolStripMenuItem
-            // 
-            this.hORAYFECHAToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("hORAYFECHAToolStripMenuItem.Image")));
-            this.hORAYFECHAToolStripMenuItem.Name = "hORAYFECHAToolStripMenuItem";
-            this.hORAYFECHAToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
-            this.hORAYFECHAToolStripMenuItem.Text = "FECHA Y HORA";
+            this.rEEMPLAZARToolStripMenuItem.Click += new System.EventHandler(this.rEEMPLAZARToolStripMenuItem_Click);
             // 
             // vERToolStripMenuItem
             // 
@@ -404,6 +403,7 @@
             this.fUENTEToolStripMenuItem.Name = "fUENTEToolStripMenuItem";
             this.fUENTEToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
             this.fUENTEToolStripMenuItem.Text = "FUENTE";
+            this.fUENTEToolStripMenuItem.Click += new System.EventHandler(this.fUENTEToolStripMenuItem_Click);
             // 
             // aYUDAToolStripMenuItem
             // 
@@ -424,6 +424,7 @@
             this.iRAToolStripMenuItem1.Name = "iRAToolStripMenuItem1";
             this.iRAToolStripMenuItem1.Size = new System.Drawing.Size(144, 26);
             this.iRAToolStripMenuItem1.Text = "IR A";
+            this.iRAToolStripMenuItem1.Click += new System.EventHandler(this.iRAToolStripMenuItem1_Click);
             // 
             // bUSCARToolStripMenuItem
             // 
@@ -435,7 +436,7 @@
             // aYUDAToolStripMenuItem1
             // 
             this.aYUDAToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aCERCADEBANSAITEXTToolStripMenuItem});
+            this.AcercaDelIDe});
             this.aYUDAToolStripMenuItem1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aYUDAToolStripMenuItem1.ForeColor = System.Drawing.Color.Snow;
             this.aYUDAToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("aYUDAToolStripMenuItem1.Image")));
@@ -445,12 +446,13 @@
             this.aYUDAToolStripMenuItem1.Size = new System.Drawing.Size(149, 36);
             this.aYUDAToolStripMenuItem1.Text = "   AYUDA";
             // 
-            // aCERCADEBANSAITEXTToolStripMenuItem
+            // AcercaDelIDe
             // 
-            this.aCERCADEBANSAITEXTToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aCERCADEBANSAITEXTToolStripMenuItem.Image")));
-            this.aCERCADEBANSAITEXTToolStripMenuItem.Name = "aCERCADEBANSAITEXTToolStripMenuItem";
-            this.aCERCADEBANSAITEXTToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
-            this.aCERCADEBANSAITEXTToolStripMenuItem.Text = "ACERCA DEL IDE ";
+            this.AcercaDelIDe.Image = ((System.Drawing.Image)(resources.GetObject("AcercaDelIDe.Image")));
+            this.AcercaDelIDe.Name = "AcercaDelIDe";
+            this.AcercaDelIDe.Size = new System.Drawing.Size(217, 26);
+            this.AcercaDelIDe.Text = "ACERCA DEL IDE ";
+            this.AcercaDelIDe.Click += new System.EventHandler(this.AcercaDelIDEClick);
             // 
             // pppToolStripMenuItem
             // 
@@ -462,6 +464,7 @@
             this.pppToolStripMenuItem.Name = "pppToolStripMenuItem";
             this.pppToolStripMenuItem.Size = new System.Drawing.Size(149, 36);
             this.pppToolStripMenuItem.Text = "   EJECUTAR";
+            this.pppToolStripMenuItem.Click += new System.EventHandler(this.pppToolStripMenuItem_Click);
             // 
             // btnMenu
             // 
@@ -683,21 +686,20 @@
         private System.Windows.Forms.ToolStripMenuItem gUARDARCOMOToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iMPRIMIRToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eDITARToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cOPIARToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pEGARToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aTRASToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aDELANTEToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AtrasoolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adelanteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copiarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cortarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pEGARToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem sELECIONARTODOToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eLIMINARTODOToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rEEMPLAZARToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hORAYFECHAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vERToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fUENTEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aYUDAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iRAToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aYUDAToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem aCERCADEBANSAITEXTToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AcercaDelIDe;
         private System.Windows.Forms.ToolStripMenuItem pppToolStripMenuItem;
         public FastColoredTextBoxNS.FastColoredTextBox fastColoredTextBox1;
         private System.Windows.Forms.Label label1;
@@ -705,6 +707,7 @@
         private System.Windows.Forms.ToolStripMenuItem bUSCARToolStripMenuItem;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.FontDialog fontDialog1;
     }
 }
 

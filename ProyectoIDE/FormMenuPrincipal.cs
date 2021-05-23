@@ -422,6 +422,81 @@ namespace ProyectoIDE
             }
         }
         int s1 = 0, s2 = 0, s3 = 0;
+
+        private void adelanteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Redo();
+        }
+
+        private void copiarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Copy();
+        }
+
+        private void cortarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Cut();
+        }
+
+        private void pEGARToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Paste();
+        }
+
+        private void sELECIONARTODOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.SelectAll();
+        }
+
+        private void eLIMINARTODOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Clear();
+        }
+
+        private void rEEMPLAZARToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.ShowReplaceDialog();
+        }
+
+        private void fUENTEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formato = fontDialog1.ShowDialog();
+            if (formato == DialogResult.OK)
+            {
+                fastColoredTextBox1.Font = fontDialog1.Font;
+            }
+        }
+
+        private void iRAToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.ShowGoToDialog();
+        }
+
+      
+
+        private void AcercaDelIDEClick(object sender, EventArgs e)
+        {
+            //hacer un form o algoi explicando el ide, seria mejor si colocamos un pdf con el manual de usuario y o de desarrollador
+        }
+
+        private void pppToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            /* if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.HTML)
+            {
+                web1 h = new web1(fastColoredTextBox1.Text);
+                h.Show();
+            }
+            else
+            {
+                MessageBox.Show("NO SE PUEDE EJECUTAR");
+            }*/
+        }
+
+        private void AtrasoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Undo();
+        }
+
         bool div = false;
         private void fastColoredTextBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -432,14 +507,10 @@ namespace ProyectoIDE
             if (e.KeyChar.ToString() == Convert.ToString(">") && div == true)
             {
                 div = false;
-                MessageBox.Show("funciona");
             }
         }
 
-        private void cOPIARToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            fastColoredTextBox1.Undo();
-        }
+       
 
        
 
