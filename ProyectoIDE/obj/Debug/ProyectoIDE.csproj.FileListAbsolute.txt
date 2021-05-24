@@ -11,3 +11,4 @@ C:\Users\rodri\Documents\GitHub\IDE\ProyectoIDE\bin\Debug\FastColoredTextBox.xml
 C:\Users\rodri\Documents\GitHub\IDE\ProyectoIDE\obj\Debug\ProyectoIDE.csproj.CopyComplete
 C:\Users\rodri\Documents\GitHub\IDE\ProyectoIDE\obj\Debug\ProyectoIDE.exe
 C:\Users\rodri\Documents\GitHub\IDE\ProyectoIDE\obj\Debug\ProyectoIDE.pdb
+C:\Users\rodri\Documents\GitHub\IDE\ProyectoIDE\obj\Debug\ProyectoIDE.Navegador.resources

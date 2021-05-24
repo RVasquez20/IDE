@@ -34,6 +34,7 @@
             this.panelContenedorForm = new System.Windows.Forms.Panel();
             this.fastColoredTextBox1 = new FastColoredTextBoxNS.FastColoredTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.lbFecha = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
@@ -125,7 +126,7 @@
         '\'',
         '\''};
             this.fastColoredTextBox1.AutoIndentCharsPatterns = "";
-            this.fastColoredTextBox1.AutoScrollMinSize = new System.Drawing.Size(0, 36);
+            this.fastColoredTextBox1.AutoScrollMinSize = new System.Drawing.Size(0, 18);
             this.fastColoredTextBox1.BackBrush = null;
             this.fastColoredTextBox1.BackColor = System.Drawing.SystemColors.Control;
             this.fastColoredTextBox1.CharHeight = 18;
@@ -149,7 +150,6 @@
             this.fastColoredTextBox1.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("fastColoredTextBox1.ServiceColors")));
             this.fastColoredTextBox1.Size = new System.Drawing.Size(870, 532);
             this.fastColoredTextBox1.TabIndex = 2;
-            this.fastColoredTextBox1.Text = "\r\n";
             this.fastColoredTextBox1.WordWrap = true;
             this.fastColoredTextBox1.Zoom = 100;
             this.fastColoredTextBox1.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.fastColoredTextBox1_TextChanged);
@@ -160,6 +160,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(61)))), ((int)(((byte)(69)))));
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.lbFecha);
             this.panel1.Controls.Add(this.lblHora);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -168,12 +169,22 @@
             this.panel1.Size = new System.Drawing.Size(870, 25);
             this.panel1.TabIndex = 5;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.LightGray;
+            this.label3.Location = new System.Drawing.Point(605, 5);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 15);
+            this.label3.TabIndex = 5;
+            // 
             // lbFecha
             // 
             this.lbFecha.AutoSize = true;
             this.lbFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFecha.ForeColor = System.Drawing.Color.White;
-            this.lbFecha.Location = new System.Drawing.Point(411, 5);
+            this.lbFecha.Location = new System.Drawing.Point(436, 7);
             this.lbFecha.Name = "lbFecha";
             this.lbFecha.Size = new System.Drawing.Size(150, 13);
             this.lbFecha.TabIndex = 4;
@@ -184,7 +195,7 @@
             this.lblHora.AutoSize = true;
             this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHora.ForeColor = System.Drawing.Color.LightGray;
-            this.lblHora.Location = new System.Drawing.Point(350, 3);
+            this.lblHora.Location = new System.Drawing.Point(357, 5);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(55, 15);
             this.lblHora.TabIndex = 1;
@@ -244,21 +255,27 @@
             // 
             // nUEVOToolStripMenuItem
             // 
+            this.nUEVOToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.nUEVOToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nUEVOToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("nUEVOToolStripMenuItem.Image")));
+            this.nUEVOToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.nUEVOToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.nUEVOToolStripMenuItem.Name = "nUEVOToolStripMenuItem";
             this.nUEVOToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.nUEVOToolStripMenuItem.Size = new System.Drawing.Size(278, 26);
+            this.nUEVOToolStripMenuItem.Size = new System.Drawing.Size(294, 38);
             this.nUEVOToolStripMenuItem.Text = "NUEVO";
             this.nUEVOToolStripMenuItem.Click += new System.EventHandler(this.nUEVOToolStripMenuItem_Click);
             // 
             // aBRIRToolStripMenuItem
             // 
+            this.aBRIRToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.aBRIRToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aBRIRToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aBRIRToolStripMenuItem.Image")));
+            this.aBRIRToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.aBRIRToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.aBRIRToolStripMenuItem.Name = "aBRIRToolStripMenuItem";
             this.aBRIRToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.aBRIRToolStripMenuItem.Size = new System.Drawing.Size(278, 26);
+            this.aBRIRToolStripMenuItem.Size = new System.Drawing.Size(294, 38);
             this.aBRIRToolStripMenuItem.Text = "ABRIR";
             this.aBRIRToolStripMenuItem.Click += new System.EventHandler(this.aBRIRToolStripMenuItem_Click);
             // 
@@ -266,9 +283,11 @@
             // 
             this.gUARDARToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gUARDARToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("gUARDARToolStripMenuItem.Image")));
+            this.gUARDARToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.gUARDARToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.gUARDARToolStripMenuItem.Name = "gUARDARToolStripMenuItem";
             this.gUARDARToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-            this.gUARDARToolStripMenuItem.Size = new System.Drawing.Size(278, 26);
+            this.gUARDARToolStripMenuItem.Size = new System.Drawing.Size(294, 38);
             this.gUARDARToolStripMenuItem.Text = "GUARDAR";
             this.gUARDARToolStripMenuItem.Click += new System.EventHandler(this.gUARDARToolStripMenuItem_Click);
             // 
@@ -276,18 +295,23 @@
             // 
             this.gUARDARCOMOToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gUARDARCOMOToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("gUARDARCOMOToolStripMenuItem.Image")));
+            this.gUARDARCOMOToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.gUARDARCOMOToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.gUARDARCOMOToolStripMenuItem.Name = "gUARDARCOMOToolStripMenuItem";
             this.gUARDARCOMOToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.gUARDARCOMOToolStripMenuItem.Size = new System.Drawing.Size(278, 26);
+            this.gUARDARCOMOToolStripMenuItem.Size = new System.Drawing.Size(294, 38);
             this.gUARDARCOMOToolStripMenuItem.Text = "GUARDAR COMO";
             // 
             // iMPRIMIRToolStripMenuItem
             // 
+            this.iMPRIMIRToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.iMPRIMIRToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iMPRIMIRToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("iMPRIMIRToolStripMenuItem.Image")));
+            this.iMPRIMIRToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iMPRIMIRToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.iMPRIMIRToolStripMenuItem.Name = "iMPRIMIRToolStripMenuItem";
             this.iMPRIMIRToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.iMPRIMIRToolStripMenuItem.Size = new System.Drawing.Size(278, 26);
+            this.iMPRIMIRToolStripMenuItem.Size = new System.Drawing.Size(294, 38);
             this.iMPRIMIRToolStripMenuItem.Text = "IMPRIMIR";
             this.iMPRIMIRToolStripMenuItem.Click += new System.EventHandler(this.iMPRIMIRToolStripMenuItem_Click);
             // 
@@ -314,72 +338,90 @@
             // AtrasoolStripMenuItem
             // 
             this.AtrasoolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("AtrasoolStripMenuItem.Image")));
+            this.AtrasoolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AtrasoolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AtrasoolStripMenuItem.Name = "AtrasoolStripMenuItem";
             this.AtrasoolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.AtrasoolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.AtrasoolStripMenuItem.Size = new System.Drawing.Size(312, 38);
             this.AtrasoolStripMenuItem.Text = "ATRAS";
             this.AtrasoolStripMenuItem.Click += new System.EventHandler(this.AtrasoolStripMenuItem_Click);
             // 
             // adelanteToolStripMenuItem
             // 
             this.adelanteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("adelanteToolStripMenuItem.Image")));
+            this.adelanteToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.adelanteToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.adelanteToolStripMenuItem.Name = "adelanteToolStripMenuItem";
             this.adelanteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.adelanteToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.adelanteToolStripMenuItem.Size = new System.Drawing.Size(312, 38);
             this.adelanteToolStripMenuItem.Text = "ADELANTE";
             this.adelanteToolStripMenuItem.Click += new System.EventHandler(this.adelanteToolStripMenuItem_Click);
             // 
             // copiarToolStripMenuItem
             // 
             this.copiarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copiarToolStripMenuItem.Image")));
+            this.copiarToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.copiarToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
             this.copiarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(312, 38);
             this.copiarToolStripMenuItem.Text = "COPIAR";
             this.copiarToolStripMenuItem.Click += new System.EventHandler(this.copiarToolStripMenuItem_Click);
             // 
             // cortarToolStripMenuItem
             // 
             this.cortarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cortarToolStripMenuItem.Image")));
+            this.cortarToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cortarToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.cortarToolStripMenuItem.Name = "cortarToolStripMenuItem";
             this.cortarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.cortarToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.cortarToolStripMenuItem.Size = new System.Drawing.Size(312, 38);
             this.cortarToolStripMenuItem.Text = "CORTAR";
             this.cortarToolStripMenuItem.Click += new System.EventHandler(this.cortarToolStripMenuItem_Click);
             // 
             // pEGARToolStripMenuItem1
             // 
+            this.pEGARToolStripMenuItem1.BackColor = System.Drawing.Color.Black;
             this.pEGARToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("pEGARToolStripMenuItem1.Image")));
+            this.pEGARToolStripMenuItem1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pEGARToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.pEGARToolStripMenuItem1.Name = "pEGARToolStripMenuItem1";
             this.pEGARToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.pEGARToolStripMenuItem1.Size = new System.Drawing.Size(296, 26);
+            this.pEGARToolStripMenuItem1.Size = new System.Drawing.Size(312, 38);
             this.pEGARToolStripMenuItem1.Text = "PEGAR";
             this.pEGARToolStripMenuItem1.Click += new System.EventHandler(this.pEGARToolStripMenuItem1_Click);
             // 
             // sELECIONARTODOToolStripMenuItem
             // 
             this.sELECIONARTODOToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sELECIONARTODOToolStripMenuItem.Image")));
+            this.sELECIONARTODOToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sELECIONARTODOToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.sELECIONARTODOToolStripMenuItem.Name = "sELECIONARTODOToolStripMenuItem";
             this.sELECIONARTODOToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.sELECIONARTODOToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.sELECIONARTODOToolStripMenuItem.Size = new System.Drawing.Size(312, 38);
             this.sELECIONARTODOToolStripMenuItem.Text = "SELECIONAR TODO";
             this.sELECIONARTODOToolStripMenuItem.Click += new System.EventHandler(this.sELECIONARTODOToolStripMenuItem_Click);
             // 
             // eLIMINARTODOToolStripMenuItem
             // 
             this.eLIMINARTODOToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("eLIMINARTODOToolStripMenuItem.Image")));
+            this.eLIMINARTODOToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.eLIMINARTODOToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.eLIMINARTODOToolStripMenuItem.Name = "eLIMINARTODOToolStripMenuItem";
             this.eLIMINARTODOToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.X)));
-            this.eLIMINARTODOToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.eLIMINARTODOToolStripMenuItem.Size = new System.Drawing.Size(312, 38);
             this.eLIMINARTODOToolStripMenuItem.Text = "ELIMINAR TODO";
             this.eLIMINARTODOToolStripMenuItem.Click += new System.EventHandler(this.eLIMINARTODOToolStripMenuItem_Click);
             // 
             // rEEMPLAZARToolStripMenuItem
             // 
             this.rEEMPLAZARToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("rEEMPLAZARToolStripMenuItem.Image")));
+            this.rEEMPLAZARToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rEEMPLAZARToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.rEEMPLAZARToolStripMenuItem.Name = "rEEMPLAZARToolStripMenuItem";
-            this.rEEMPLAZARToolStripMenuItem.Size = new System.Drawing.Size(296, 26);
+            this.rEEMPLAZARToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
+            this.rEEMPLAZARToolStripMenuItem.Size = new System.Drawing.Size(312, 38);
             this.rEEMPLAZARToolStripMenuItem.Text = "REEMPLAZAR";
             this.rEEMPLAZARToolStripMenuItem.Click += new System.EventHandler(this.rEEMPLAZARToolStripMenuItem_Click);
             // 
@@ -400,8 +442,11 @@
             // fUENTEToolStripMenuItem
             // 
             this.fUENTEToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fUENTEToolStripMenuItem.Image")));
+            this.fUENTEToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.fUENTEToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.fUENTEToolStripMenuItem.Name = "fUENTEToolStripMenuItem";
-            this.fUENTEToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
+            this.fUENTEToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.fUENTEToolStripMenuItem.Size = new System.Drawing.Size(208, 38);
             this.fUENTEToolStripMenuItem.Text = "FUENTE";
             this.fUENTEToolStripMenuItem.Click += new System.EventHandler(this.fUENTEToolStripMenuItem_Click);
             // 
@@ -421,15 +466,23 @@
             // 
             // iRAToolStripMenuItem1
             // 
+            this.iRAToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("iRAToolStripMenuItem1.Image")));
+            this.iRAToolStripMenuItem1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iRAToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.iRAToolStripMenuItem1.Name = "iRAToolStripMenuItem1";
-            this.iRAToolStripMenuItem1.Size = new System.Drawing.Size(144, 26);
+            this.iRAToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.iRAToolStripMenuItem1.Size = new System.Drawing.Size(216, 38);
             this.iRAToolStripMenuItem1.Text = "IR A";
             this.iRAToolStripMenuItem1.Click += new System.EventHandler(this.iRAToolStripMenuItem1_Click);
             // 
             // bUSCARToolStripMenuItem
             // 
+            this.bUSCARToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("bUSCARToolStripMenuItem.Image")));
+            this.bUSCARToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bUSCARToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.bUSCARToolStripMenuItem.Name = "bUSCARToolStripMenuItem";
-            this.bUSCARToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.bUSCARToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
+            this.bUSCARToolStripMenuItem.Size = new System.Drawing.Size(216, 38);
             this.bUSCARToolStripMenuItem.Text = "BUSCAR";
             this.bUSCARToolStripMenuItem.Click += new System.EventHandler(this.bUSCARToolStripMenuItem_Click);
             // 
@@ -449,8 +502,11 @@
             // AcercaDelIDe
             // 
             this.AcercaDelIDe.Image = ((System.Drawing.Image)(resources.GetObject("AcercaDelIDe.Image")));
+            this.AcercaDelIDe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AcercaDelIDe.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.AcercaDelIDe.Name = "AcercaDelIDe";
-            this.AcercaDelIDe.Size = new System.Drawing.Size(217, 26);
+            this.AcercaDelIDe.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
+            this.AcercaDelIDe.Size = new System.Drawing.Size(297, 38);
             this.AcercaDelIDe.Text = "ACERCA DEL IDE ";
             this.AcercaDelIDe.Click += new System.EventHandler(this.AcercaDelIDEClick);
             // 
@@ -462,6 +518,7 @@
             this.pppToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.pppToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.pppToolStripMenuItem.Name = "pppToolStripMenuItem";
+            this.pppToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.pppToolStripMenuItem.Size = new System.Drawing.Size(149, 36);
             this.pppToolStripMenuItem.Text = "   EJECUTAR";
             this.pppToolStripMenuItem.Click += new System.EventHandler(this.pppToolStripMenuItem_Click);
@@ -513,11 +570,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(612, 15);
+            this.label1.Location = new System.Drawing.Point(601, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 16);
+            this.label1.Size = new System.Drawing.Size(131, 24);
             this.label1.TabIndex = 7;
             this.label1.Text = "Proyecto IDE";
             // 
@@ -708,6 +765,7 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.FontDialog fontDialog1;
+        private System.Windows.Forms.Label label3;
     }
 }
 

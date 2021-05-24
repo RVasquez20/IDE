@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Navegador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Navegador.designer.cs">
+      <DependentUpon>Navegador.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +63,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Navegador.resx">
+      <DependentUpon>Navegador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMenuPrincipal.resx">
       <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>

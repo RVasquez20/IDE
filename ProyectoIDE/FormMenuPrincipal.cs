@@ -42,6 +42,7 @@ namespace ProyectoIDE
 
         //int posicion = 0;
         //importantes para buscar
+        string name = "";
         int t = 0;
         int nb_result = 0;
 
@@ -144,9 +145,25 @@ namespace ProyectoIDE
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Está seguro de cerrar?", "Alerta¡¡", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (Titulo.Text.Contains("*")) {
+                if (MessageBox.Show("¿Está seguro de cerrar?", "Alerta", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    if (MessageBox.Show("¿Desea Guardar antes de salir?", "Alerta", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        save();
+                        Application.Exit();
+                    }
+                    else
+                    {
+                        Application.Exit();
+                    }
+                }
+            }
+            else
             {
-                Application.Exit();
+                
+                    Application.Exit();
+                
             }
         }
 
@@ -228,20 +245,35 @@ namespace ProyectoIDE
             Titulo.Text = "Sin Titulo";
             label2.Visible = false;
             archivo = null;
+            
         }
 
         private void nUEVOToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult dialogo = MessageBox.Show("¿Desea Guardar los Cambios?", "Guardar Cambios",
-              MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialogo == DialogResult.No)
+            if (Titulo.Text.Contains("*"))
             {
-                fastColoredTextBox1.Clear();
-                archivo = null;
+                DialogResult dialogo = MessageBox.Show("¿Desea Guardar los Cambios?", "Guardar Cambios",
+                  MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogo == DialogResult.No)
+                {
+                    label2.Visible = false;
+                    fastColoredTextBox1.Clear();
+                    Titulo.Text = "Sin Titulo*";
+                    archivo = null;
+                }
+                else
+                {
+                    save();
+                    label2.Visible = false;
+                    Titulo.Text = "Sin Titulo*";
+                    fastColoredTextBox1.Clear();
+                    archivo = null;
+                }
             }
             else
             {
-                save();
+                label2.Visible = false;
+                Titulo.Text = "Sin Titulo*";
                 fastColoredTextBox1.Clear();
                 archivo = null;
             }
@@ -285,6 +317,7 @@ namespace ProyectoIDE
             {
                 Titulo.Text += "*";
             }
+            
         }
 
    
@@ -295,6 +328,15 @@ namespace ProyectoIDE
             Titulo.Text = "Sin Titulo*";
             label2.Visible = false;
             archivo = null;
+            if (h != null)
+            {
+
+
+                h.Close();
+
+                }
+            
+
         }
 
         private void bUSCARToolStripMenuItem_Click(object sender, EventArgs e)
@@ -470,6 +512,8 @@ namespace ProyectoIDE
         private void iRAToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             fastColoredTextBox1.ShowGoToDialog();
+            
+            
         }
 
       
@@ -478,19 +522,74 @@ namespace ProyectoIDE
         {
             //hacer un form o algoi explicando el ide, seria mejor si colocamos un pdf con el manual de usuario y o de desarrollador
         }
-
+        public Navegador h;
         private void pppToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /* if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.HTML)
+            if (h == null)
             {
-                web1 h = new web1(fastColoredTextBox1.Text);
-                h.Show();
+                string content = "";
+                content = fastColoredTextBox1.Text;
+                if (content.Equals(""))
+                {
+                    MessageBox.Show("No hay nada que mostrar escriba codiog para mostrar la web");
+                }
+                else
+                {
+                    h = new Navegador(content);
+                    this.Invoke(new Action(() => { h.Refresh(); }));
+                    h.Titulo.Text = Titulo.Text;
+                    h.Show();
+
+                }
             }
             else
             {
-                MessageBox.Show("NO SE PUEDE EJECUTAR");
-            }*/
+                if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.HTML)
+                {
+
+                    if (Application.OpenForms["Navegador"] == null && !fastColoredTextBox1.Text.Equals(""))
+                    {
+                        if (!h.IsDisposed)
+                        {
+                            h.Actualizar(fastColoredTextBox1.Text);
+                            this.Invoke(new Action(() => { h.Refresh(); }));
+                            h.Titulo.Text = Titulo.Text;
+                            h.Show();
+                            h.FormClosed += Logout;
+                        }
+                        else
+                        {
+                            h = new Navegador(fastColoredTextBox1.Text);
+                            h.Titulo.Text = Titulo.Text;
+                            h.Show();
+                            this.Invoke(new Action(() => { h.Refresh(); }));
+                            h.FormClosed += Logout;
+                        }
+                    }
+                    else
+                    {
+
+                        h.Actualizar(fastColoredTextBox1.Text);
+                        this.Invoke(new Action(() => { h.Refresh(); }));
+                        h.Titulo.Text = Titulo.Text;
+                        h.FormClosed += Logout;
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("NO SE PUEDE EJECUTAR");
+                }
+            }
         }
+        private void Logout(object sender, FormClosedEventArgs e)
+        {
+
+            this.Focus();
+
+        }
+
+        
 
         private void AtrasoolStripMenuItem_Click(object sender, EventArgs e)
         {
