@@ -39,6 +39,15 @@
             this.lblHora = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.PanelBarraTitulo = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Titulo = new System.Windows.Forms.Label();
+            this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
+            this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
+            this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.aRCHIVOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nUEVOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBRIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,32 +69,22 @@
             this.iRAToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.bUSCARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aYUDAToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.AcercaDelIDe = new System.Windows.Forms.ToolStripMenuItem();
             this.pppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenu = new System.Windows.Forms.PictureBox();
-            this.PanelBarraTitulo = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.Titulo = new System.Windows.Forms.Label();
             this.btnNormal = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnMaximizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
-            this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
-            this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.panelContenedorPrincipal.SuspendLayout();
             this.panelContenedorForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             this.PanelBarraTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
@@ -230,9 +229,79 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 108);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(156, 222);
+            this.menuStrip1.Size = new System.Drawing.Size(156, 241);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // PanelBarraTitulo
+            // 
+            this.PanelBarraTitulo.BackColor = System.Drawing.Color.SteelBlue;
+            this.PanelBarraTitulo.Controls.Add(this.label2);
+            this.PanelBarraTitulo.Controls.Add(this.label1);
+            this.PanelBarraTitulo.Controls.Add(this.pictureBox8);
+            this.PanelBarraTitulo.Controls.Add(this.Titulo);
+            this.PanelBarraTitulo.Controls.Add(this.btnNormal);
+            this.PanelBarraTitulo.Controls.Add(this.btnMinimizar);
+            this.PanelBarraTitulo.Controls.Add(this.btnMaximizar);
+            this.PanelBarraTitulo.Controls.Add(this.btnCerrar);
+            this.PanelBarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelBarraTitulo.Location = new System.Drawing.Point(0, 0);
+            this.PanelBarraTitulo.Name = "PanelBarraTitulo";
+            this.PanelBarraTitulo.Size = new System.Drawing.Size(1100, 43);
+            this.PanelBarraTitulo.TabIndex = 1;
+            this.PanelBarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelBarraTitulo_MouseDown);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(601, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(131, 24);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Proyecto IDE";
+            // 
+            // Titulo
+            // 
+            this.Titulo.AutoSize = true;
+            this.Titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Titulo.ForeColor = System.Drawing.Color.White;
+            this.Titulo.Location = new System.Drawing.Point(77, 15);
+            this.Titulo.Name = "Titulo";
+            this.Titulo.Size = new System.Drawing.Size(63, 16);
+            this.Titulo.TabIndex = 4;
+            this.Titulo.Text = "Sin Titulo";
+            // 
+            // tmExpandirMenu
+            // 
+            this.tmExpandirMenu.Interval = 15;
+            this.tmExpandirMenu.Tick += new System.EventHandler(this.tmExpandirMenu_Tick);
+            // 
+            // tmContraerMenu
+            // 
+            this.tmContraerMenu.Interval = 15;
+            this.tmContraerMenu.Tick += new System.EventHandler(this.tmContraerMenu_Tick);
+            // 
+            // tmFechaHora
+            // 
+            this.tmFechaHora.Enabled = true;
+            this.tmFechaHora.Tick += new System.EventHandler(this.tmFechaHora_Tick);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
             // 
             // aRCHIVOToolStripMenuItem
             // 
@@ -488,27 +557,16 @@
             // 
             // aYUDAToolStripMenuItem1
             // 
-            this.aYUDAToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AcercaDelIDe});
             this.aYUDAToolStripMenuItem1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aYUDAToolStripMenuItem1.ForeColor = System.Drawing.Color.Snow;
             this.aYUDAToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("aYUDAToolStripMenuItem1.Image")));
             this.aYUDAToolStripMenuItem1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.aYUDAToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.aYUDAToolStripMenuItem1.Name = "aYUDAToolStripMenuItem1";
+            this.aYUDAToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
             this.aYUDAToolStripMenuItem1.Size = new System.Drawing.Size(149, 36);
             this.aYUDAToolStripMenuItem1.Text = "   AYUDA";
-            // 
-            // AcercaDelIDe
-            // 
-            this.AcercaDelIDe.Image = ((System.Drawing.Image)(resources.GetObject("AcercaDelIDe.Image")));
-            this.AcercaDelIDe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AcercaDelIDe.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.AcercaDelIDe.Name = "AcercaDelIDe";
-            this.AcercaDelIDe.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
-            this.AcercaDelIDe.Size = new System.Drawing.Size(297, 38);
-            this.AcercaDelIDe.Text = "ACERCA DEL IDE ";
-            this.AcercaDelIDe.Click += new System.EventHandler(this.AcercaDelIDEClick);
+            this.aYUDAToolStripMenuItem1.Click += new System.EventHandler(this.aYUDAToolStripMenuItem1_Click);
             // 
             // pppToolStripMenuItem
             // 
@@ -536,24 +594,6 @@
             this.btnMenu.TabStop = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
-            // PanelBarraTitulo
-            // 
-            this.PanelBarraTitulo.BackColor = System.Drawing.Color.SteelBlue;
-            this.PanelBarraTitulo.Controls.Add(this.label2);
-            this.PanelBarraTitulo.Controls.Add(this.label1);
-            this.PanelBarraTitulo.Controls.Add(this.pictureBox8);
-            this.PanelBarraTitulo.Controls.Add(this.Titulo);
-            this.PanelBarraTitulo.Controls.Add(this.btnNormal);
-            this.PanelBarraTitulo.Controls.Add(this.btnMinimizar);
-            this.PanelBarraTitulo.Controls.Add(this.btnMaximizar);
-            this.PanelBarraTitulo.Controls.Add(this.btnCerrar);
-            this.PanelBarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelBarraTitulo.Location = new System.Drawing.Point(0, 0);
-            this.PanelBarraTitulo.Name = "PanelBarraTitulo";
-            this.PanelBarraTitulo.Size = new System.Drawing.Size(1100, 43);
-            this.PanelBarraTitulo.TabIndex = 1;
-            this.PanelBarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelBarraTitulo_MouseDown);
-            // 
             // label2
             // 
             this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -567,17 +607,6 @@
             this.label2.UseVisualStyleBackColor = true;
             this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(601, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 24);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Proyecto IDE";
-            // 
             // pictureBox8
             // 
             this.pictureBox8.Image = global::ProyectoIDE.Properties.Resources.satellite_dish__1_;
@@ -587,17 +616,6 @@
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 5;
             this.pictureBox8.TabStop = false;
-            // 
-            // Titulo
-            // 
-            this.Titulo.AutoSize = true;
-            this.Titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Titulo.ForeColor = System.Drawing.Color.White;
-            this.Titulo.Location = new System.Drawing.Point(77, 15);
-            this.Titulo.Name = "Titulo";
-            this.Titulo.Size = new System.Drawing.Size(63, 16);
-            this.Titulo.TabIndex = 4;
-            this.Titulo.Text = "Sin Titulo";
             // 
             // btnNormal
             // 
@@ -656,36 +674,6 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // tmExpandirMenu
-            // 
-            this.tmExpandirMenu.Interval = 15;
-            this.tmExpandirMenu.Tick += new System.EventHandler(this.tmExpandirMenu_Tick);
-            // 
-            // tmContraerMenu
-            // 
-            this.tmContraerMenu.Interval = 15;
-            this.tmContraerMenu.Tick += new System.EventHandler(this.tmContraerMenu_Tick);
-            // 
-            // tmFechaHora
-            // 
-            this.tmFechaHora.Enabled = true;
-            this.tmFechaHora.Tick += new System.EventHandler(this.tmFechaHora_Tick);
-            // 
-            // printDocument1
-            // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
-            // printPreviewDialog1
-            // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Document = this.printDocument1;
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
-            // 
             // FormMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -708,9 +696,9 @@
             this.panelMenu.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
             this.PanelBarraTitulo.ResumeLayout(false);
             this.PanelBarraTitulo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
@@ -756,7 +744,6 @@
         private System.Windows.Forms.ToolStripMenuItem aYUDAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iRAToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aYUDAToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem AcercaDelIDe;
         private System.Windows.Forms.ToolStripMenuItem pppToolStripMenuItem;
         public FastColoredTextBoxNS.FastColoredTextBox fastColoredTextBox1;
         private System.Windows.Forms.Label label1;

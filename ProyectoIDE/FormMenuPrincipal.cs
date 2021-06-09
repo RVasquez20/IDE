@@ -40,7 +40,6 @@ namespace ProyectoIDE
         /////////Simbolos
         string[] Reservadas4 = new string[] { "<", ">", "/" };
 
-        //int posicion = 0;
         //importantes para buscar
         string name = "";
         int t = 0;
@@ -48,6 +47,7 @@ namespace ProyectoIDE
 
         internal static string variableCom = "";
         //Iniciar form de DOM
+        Form dom=new DOM();
         bool confi = true;
         //Constructor
         public FormMenuPrincipal()
@@ -57,6 +57,7 @@ namespace ProyectoIDE
             this.SetStyle(ControlStyles.ResizeRedraw, true);
             this.DoubleBuffered = true;
             label2.Visible = false;
+           
         }
         //METODO PARA REDIMENCIONAR/CAMBIAR TAMAÑO A FORMULARIO  TIEMPO DE EJECUCION ----------------------------------------------------------
         private int tolerance = 15;
@@ -335,6 +336,10 @@ namespace ProyectoIDE
                 h.Close();
 
                 }
+            if (dom!=null)
+            {
+                dom.Close();
+            }
             
 
         }
@@ -398,9 +403,43 @@ namespace ProyectoIDE
                     if (cont_abre_etiqueta == cont_cierra_etiqueta)
                     {
                         variableCom = fastColoredTextBox1.Text;
-                        /* frm.Refresh();
-                         frm.Activate();
-                         frm.Show();*/
+                        if (dom != null)
+                        {
+                            if (Application.OpenForms["DOM"] == null)
+                            {
+
+                                if (!dom.IsDisposed)
+                                {
+                                    dom.Refresh();
+                                    dom.Activate();
+                                    dom.Show();
+                                    this.Focus();
+                                }
+                                else
+                                {
+                                    dom = new DOM();
+                                    dom.Refresh();
+                                    dom.Activate();
+                                    dom.Show();
+                                    this.Focus();
+                                }
+                            }
+                            else
+                            {
+                                dom.Refresh();
+                                dom.Activate();
+                                dom.Show();
+                                this.Focus();
+                            }
+                        }
+                        else
+                        {
+                            dom = new DOM();
+                            dom.Refresh();
+                            dom.Activate();
+                            dom.Show();
+                            this.Focus();
+                        }
                     }
                     else
                     {
@@ -452,9 +491,43 @@ namespace ProyectoIDE
                     if (cont_abre_etiqueta == cont_cierra_etiqueta)
                     {
                         variableCom = fastColoredTextBox1.Text;
-                        /*frm.Refresh();
-                        frm.Activate();
-                        frm.Show();*/
+                        if (dom != null)
+                        {
+                            if (Application.OpenForms["DOM"] == null)
+                            {
+
+                                if (!dom.IsDisposed)
+                                {
+                                    dom.Refresh();
+                                    dom.Activate();
+                                    dom.Show();
+                                    this.Focus();
+                                }
+                                else
+                                {
+                                    dom = new DOM();
+                                    dom.Refresh();
+                                    dom.Activate();
+                                    dom.Show();
+                                    this.Focus();
+                                }
+                            }
+                            else
+                            {
+                                dom.Refresh();
+                                dom.Activate();
+                                dom.Show();
+                                this.Focus();
+                            }
+                        }
+                        else
+                        {
+                            dom = new DOM();
+                            dom.Refresh();
+                            dom.Activate();
+                            dom.Show();
+                            this.Focus();
+                        }
                     }
                     else
                     {
@@ -518,10 +591,7 @@ namespace ProyectoIDE
 
       
 
-        private void AcercaDelIDEClick(object sender, EventArgs e)
-        {
-            //hacer un form o algoi explicando el ide, seria mejor si colocamos un pdf con el manual de usuario y o de desarrollador
-        }
+      
         public Navegador h;
         private void pppToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -589,7 +659,14 @@ namespace ProyectoIDE
 
         }
 
-        
+        private void aYUDAToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["Ayuda"] == null)
+            {
+                Ayuda MenuDeAyuda = new Ayuda();
+                MenuDeAyuda.Show();
+            }
+        }
 
         private void AtrasoolStripMenuItem_Click(object sender, EventArgs e)
         {
