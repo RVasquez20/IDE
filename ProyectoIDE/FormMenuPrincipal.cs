@@ -40,13 +40,14 @@ namespace ProyectoIDE
         /////////Simbolos
         string[] Reservadas4 = new string[] { "<", ">", "/" };
 
-        //int posicion = 0;
         //importantes para buscar
+        string name = "";
         int t = 0;
         int nb_result = 0;
 
         internal static string variableCom = "";
-        
+        //Iniciar form de DOM
+        Form dom=new DOM();
         bool confi = true;
         //Constructor
         public FormMenuPrincipal()
@@ -56,6 +57,7 @@ namespace ProyectoIDE
             this.SetStyle(ControlStyles.ResizeRedraw, true);
             this.DoubleBuffered = true;
             label2.Visible = false;
+           
         }
         //METODO PARA REDIMENCIONAR/CAMBIAR TAMAÑO A FORMULARIO  TIEMPO DE EJECUCION ----------------------------------------------------------
         private int tolerance = 15;
@@ -144,9 +146,25 @@ namespace ProyectoIDE
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Está seguro de cerrar?", "Alerta¡¡", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (Titulo.Text.Contains("*")) {
+                if (MessageBox.Show("¿Está seguro de cerrar?", "Alerta", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    if (MessageBox.Show("¿Desea Guardar antes de salir?", "Alerta", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        save();
+                        Application.Exit();
+                    }
+                    else
+                    {
+                        Application.Exit();
+                    }
+                }
+            }
+            else
             {
-                Application.Exit();
+                
+                    Application.Exit();
+                
             }
         }
 
@@ -228,20 +246,35 @@ namespace ProyectoIDE
             Titulo.Text = "Sin Titulo";
             label2.Visible = false;
             archivo = null;
+            
         }
 
         private void nUEVOToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult dialogo = MessageBox.Show("¿Desea Guardar los Cambios?", "Guardar Cambios",
-              MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialogo == DialogResult.No)
+            if (Titulo.Text.Contains("*"))
             {
-                fastColoredTextBox1.Clear();
-                archivo = null;
+                DialogResult dialogo = MessageBox.Show("¿Desea Guardar los Cambios?", "Guardar Cambios",
+                  MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogo == DialogResult.No)
+                {
+                    label2.Visible = false;
+                    fastColoredTextBox1.Clear();
+                    Titulo.Text = "Sin Titulo*";
+                    archivo = null;
+                }
+                else
+                {
+                    save();
+                    label2.Visible = false;
+                    Titulo.Text = "Sin Titulo*";
+                    fastColoredTextBox1.Clear();
+                    archivo = null;
+                }
             }
             else
             {
-                save();
+                label2.Visible = false;
+                Titulo.Text = "Sin Titulo*";
                 fastColoredTextBox1.Clear();
                 archivo = null;
             }
@@ -285,6 +318,7 @@ namespace ProyectoIDE
             {
                 Titulo.Text += "*";
             }
+            
         }
 
    
@@ -295,6 +329,19 @@ namespace ProyectoIDE
             Titulo.Text = "Sin Titulo*";
             label2.Visible = false;
             archivo = null;
+            if (h != null)
+            {
+
+
+                h.Close();
+
+                }
+            if (dom!=null)
+            {
+                dom.Close();
+            }
+            
+
         }
 
         private void bUSCARToolStripMenuItem_Click(object sender, EventArgs e)
@@ -302,11 +349,346 @@ namespace ProyectoIDE
             fastColoredTextBox1.ShowFindDialog();
         }
 
-        private void panelMenu_Paint(object sender, PaintEventArgs e)
+        private void iMPRIMIRToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString(fastColoredTextBox1.Text, new Font("Arial", 14, FontStyle.Bold), Brushes.Black, new PointF(100, 100));
+        }
+
+        private void fastColoredTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            int cont_abre_etiqueta = 0;
+            int cont_cierra_etiqueta = 0;
+            string texto = fastColoredTextBox1.Text;
+            char[] array = texto.ToCharArray();//separa en letras
+            string error = "Cierre todas las etiquetas";
+            string[] stringSeparators = new string[] { " ", "<", ">" };
+            string[] array2 = texto.Split(stringSeparators, StringSplitOptions.None);//separa las palabras
+            string busc = "";
+
+            if (e.KeyCode == Keys.Up)
+            {
+                foreach (var p in array2)
+                {
+                    busc = p;
+                    for (int i = 0; i < Reservadas.Length; i++)//para comparar cuando se abre la etiqueta
+                    {
+                        if (busc == Reservadas[i].ToString())
+                        {
+                            cont_abre_etiqueta++;
+                            int a = fastColoredTextBox1.Text.IndexOf(busc);
+
+
+                        }
+                    }
+                    for (int j = 0; j < Cierre_Reservadas.Length; j++)//para comparar cuando se cierra la etiqueta
+                    {
+                        if (busc == Cierre_Reservadas[j].ToString())
+                        {
+                            cont_cierra_etiqueta++;
+                        }
+                    }
+                    busc = "";
+                }
+
+                if (cont_abre_etiqueta > 0 && cont_cierra_etiqueta > 0)
+                {
+                    if (cont_abre_etiqueta == cont_cierra_etiqueta)
+                    {
+                        variableCom = fastColoredTextBox1.Text;
+                        if (dom != null)
+                        {
+                            if (Application.OpenForms["DOM"] == null)
+                            {
+
+                                if (!dom.IsDisposed)
+                                {
+                                    dom.Refresh();
+                                    dom.Activate();
+                                    dom.Show();
+                                    this.Focus();
+                                }
+                                else
+                                {
+                                    dom = new DOM();
+                                    dom.Refresh();
+                                    dom.Activate();
+                                    dom.Show();
+                                    this.Focus();
+                                }
+                            }
+                            else
+                            {
+                                dom.Refresh();
+                                dom.Activate();
+                                dom.Show();
+                                this.Focus();
+                            }
+                        }
+                        else
+                        {
+                            dom = new DOM();
+                            dom.Refresh();
+                            dom.Activate();
+                            dom.Show();
+                            this.Focus();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(error);
+                    }
+                }
+            }
 
         }
 
+        private void fastColoredTextBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            int cont_abre_etiqueta = 0;
+            int cont_cierra_etiqueta = 0;
+            string texto = fastColoredTextBox1.Text;
+            char[] array = texto.ToCharArray();//separa en letras
+            string error = "Cierre todas las etiquetas";
+            string[] stringSeparators = new string[] { " ", "<", ">" };
+            string[] array2 = texto.Split(stringSeparators, StringSplitOptions.None);//separa las palabras
+            string busc = "";
+
+            if (e.KeyCode == Keys.Delete)
+            {
+                foreach (var p in array2)
+                {
+                    busc = p;
+                    for (int i = 0; i < Reservadas.Length; i++)//para comparar cuando se abre la etiqueta
+                    {
+                        if (busc == Reservadas[i].ToString())
+                        {
+                            cont_abre_etiqueta++;
+                            int a = fastColoredTextBox1.Text.IndexOf(busc);
+
+
+                        }
+                    }
+                    for (int j = 0; j < Cierre_Reservadas.Length; j++)//para comparar cuando se cierra la etiqueta
+                    {
+                        if (busc == Cierre_Reservadas[j].ToString())
+                        {
+                            cont_cierra_etiqueta++;
+                        }
+                    }
+                    busc = "";
+                }
+
+                if (cont_abre_etiqueta > 0 && cont_cierra_etiqueta > 0)
+                {
+                    if (cont_abre_etiqueta == cont_cierra_etiqueta)
+                    {
+                        variableCom = fastColoredTextBox1.Text;
+                        if (dom != null)
+                        {
+                            if (Application.OpenForms["DOM"] == null)
+                            {
+
+                                if (!dom.IsDisposed)
+                                {
+                                    dom.Refresh();
+                                    dom.Activate();
+                                    dom.Show();
+                                    this.Focus();
+                                }
+                                else
+                                {
+                                    dom = new DOM();
+                                    dom.Refresh();
+                                    dom.Activate();
+                                    dom.Show();
+                                    this.Focus();
+                                }
+                            }
+                            else
+                            {
+                                dom.Refresh();
+                                dom.Activate();
+                                dom.Show();
+                                this.Focus();
+                            }
+                        }
+                        else
+                        {
+                            dom = new DOM();
+                            dom.Refresh();
+                            dom.Activate();
+                            dom.Show();
+                            this.Focus();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(error);
+                    }
+                }
+            }
+        }
+        int s1 = 0, s2 = 0, s3 = 0;
+
+        private void adelanteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Redo();
+        }
+
+        private void copiarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Copy();
+        }
+
+        private void cortarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Cut();
+        }
+
+        private void pEGARToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Paste();
+        }
+
+        private void sELECIONARTODOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.SelectAll();
+        }
+
+        private void eLIMINARTODOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Clear();
+        }
+
+        private void rEEMPLAZARToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.ShowReplaceDialog();
+        }
+
+        private void fUENTEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formato = fontDialog1.ShowDialog();
+            if (formato == DialogResult.OK)
+            {
+                fastColoredTextBox1.Font = fontDialog1.Font;
+            }
+        }
+
+        private void iRAToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.ShowGoToDialog();
+            
+            
+        }
+
+      
+
+      
+        public Navegador h;
+        private void pppToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (h == null)
+            {
+                string content = "";
+                content = fastColoredTextBox1.Text;
+                if (content.Equals(""))
+                {
+                    MessageBox.Show("No hay nada que mostrar escriba codiog para mostrar la web");
+                }
+                else
+                {
+                    h = new Navegador(content);
+                    this.Invoke(new Action(() => { h.Refresh(); }));
+                    h.Titulo.Text = Titulo.Text;
+                    h.Show();
+
+                }
+            }
+            else
+            {
+                if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.HTML)
+                {
+
+                    if (Application.OpenForms["Navegador"] == null && !fastColoredTextBox1.Text.Equals(""))
+                    {
+                        if (!h.IsDisposed)
+                        {
+                            h.Actualizar(fastColoredTextBox1.Text);
+                            this.Invoke(new Action(() => { h.Refresh(); }));
+                            h.Titulo.Text = Titulo.Text;
+                            h.Show();
+                            h.FormClosed += Logout;
+                        }
+                        else
+                        {
+                            h = new Navegador(fastColoredTextBox1.Text);
+                            h.Titulo.Text = Titulo.Text;
+                            h.Show();
+                            this.Invoke(new Action(() => { h.Refresh(); }));
+                            h.FormClosed += Logout;
+                        }
+                    }
+                    else
+                    {
+
+                        h.Actualizar(fastColoredTextBox1.Text);
+                        this.Invoke(new Action(() => { h.Refresh(); }));
+                        h.Titulo.Text = Titulo.Text;
+                        h.FormClosed += Logout;
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("NO SE PUEDE EJECUTAR");
+                }
+            }
+        }
+        private void Logout(object sender, FormClosedEventArgs e)
+        {
+
+            this.Focus();
+
+        }
+
+        private void aYUDAToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["Ayuda"] == null)
+            {
+                Ayuda MenuDeAyuda = new Ayuda();
+                MenuDeAyuda.Show();
+            }
+        }
+
+        private void AtrasoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Undo();
+        }
+
+        bool div = false;
+        private void fastColoredTextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.ToString() == Convert.ToString("/"))
+            {
+                div = true;
+            }
+            if (e.KeyChar.ToString() == Convert.ToString(">") && div == true)
+            {
+                div = false;
+            }
+        }
+
+       
+
+       
 
         //METODO PARA HORA Y FECHA ACTUAL ----------------------------------------------------------
         private void tmFechaHora_Tick(object sender, EventArgs e)
