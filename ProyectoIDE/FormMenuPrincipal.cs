@@ -40,15 +40,11 @@ namespace ProyectoIDE
         /////////Simbolos
         string[] Reservadas4 = new string[] { "<", ">", "/" };
 
-        //importantes para buscar
-        string name = "";
-        int t = 0;
-        int nb_result = 0;
+
 
         internal static string variableCom = "";
         //Iniciar form de DOM
         Form dom=new DOM();
-        bool confi = true;
         //Constructor
         public FormMenuPrincipal()
         {
@@ -410,6 +406,7 @@ namespace ProyectoIDE
 
                                 if (!dom.IsDisposed)
                                 {
+                                    save();
                                     dom.Refresh();
                                     dom.Activate();
                                     dom.Show();
@@ -417,6 +414,7 @@ namespace ProyectoIDE
                                 }
                                 else
                                 {
+                                    save();
                                     dom = new DOM();
                                     dom.Refresh();
                                     dom.Activate();
@@ -426,6 +424,7 @@ namespace ProyectoIDE
                             }
                             else
                             {
+                                save();
                                 dom.Refresh();
                                 dom.Activate();
                                 dom.Show();
@@ -434,6 +433,7 @@ namespace ProyectoIDE
                         }
                         else
                         {
+                            save();
                             dom = new DOM();
                             dom.Refresh();
                             dom.Activate();
@@ -498,6 +498,7 @@ namespace ProyectoIDE
 
                                 if (!dom.IsDisposed)
                                 {
+                                    save();
                                     dom.Refresh();
                                     dom.Activate();
                                     dom.Show();
@@ -505,6 +506,7 @@ namespace ProyectoIDE
                                 }
                                 else
                                 {
+                                    save();
                                     dom = new DOM();
                                     dom.Refresh();
                                     dom.Activate();
@@ -514,6 +516,7 @@ namespace ProyectoIDE
                             }
                             else
                             {
+                                save();
                                 dom.Refresh();
                                 dom.Activate();
                                 dom.Show();
@@ -522,6 +525,7 @@ namespace ProyectoIDE
                         }
                         else
                         {
+                            save();
                             dom = new DOM();
                             dom.Refresh();
                             dom.Activate();
@@ -536,7 +540,6 @@ namespace ProyectoIDE
                 }
             }
         }
-        int s1 = 0, s2 = 0, s3 = 0;
 
         private void adelanteToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -595,6 +598,7 @@ namespace ProyectoIDE
         public Navegador h;
         private void pppToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            save();
             if (h == null)
             {
                 string content = "";
@@ -674,6 +678,21 @@ namespace ProyectoIDE
         }
 
         bool div = false;
+
+        private void gUARDARCOMOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog SaveFile = new SaveFileDialog();
+            SaveFile.Filter = "Texto|*.HTML";
+            if (SaveFile.ShowDialog() == DialogResult.OK)
+            {
+                archivo = SaveFile.FileName;
+                using (StreamWriter sw = new StreamWriter(SaveFile.FileName))
+                {
+                    sw.Write(fastColoredTextBox1.Text);
+                }
+            }
+        }
+
         private void fastColoredTextBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar.ToString() == Convert.ToString("/"))
@@ -695,6 +714,7 @@ namespace ProyectoIDE
         {
             lbFecha.Text = DateTime.Now.ToLongDateString();
             lblHora.Text = DateTime.Now.ToString("HH:mm:ssss");
+
         }
         
 

@@ -98,8 +98,12 @@ namespace ProyectoIDE
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //axAcroPDF1.src = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory())) + @"\Resources\Creditos.pdf";
-            MessageBox.Show("RV\nEG\nJV");
+            if (Application.OpenForms["Creditos"] == null)
+            {
+                Creditos creditisiossss = new Creditos();
+                creditisiossss.Show();
+                creditisiossss.Focus();
+            }
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)

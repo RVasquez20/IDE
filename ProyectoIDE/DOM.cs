@@ -118,7 +118,7 @@ namespace ProyectoIDE
         static string arbol(string pal)
         {
             string ncadena = "";
-            int ln = (pal).Length;//*************
+            int ln = (pal).Length;
             int parentesis1 = 0, parentesis2 = 0, inicio = 0, tamaño = 0, copia = 0;
             string nodo = "", cnodo = "", hijo = "";
 
@@ -151,7 +151,7 @@ namespace ProyectoIDE
         {
 
             int tamaño = (array).Length;
-            int fila = 0, j = 0, aux = 0, aux1 = 0, profi = 0;
+            int fila = 0, j = 0, aux1 = 0, profi = 0;
             int i = 0, p = 0;
             char[] arbol = array.ToCharArray();
 
@@ -212,7 +212,7 @@ namespace ProyectoIDE
             }
 
             profi = max + 1;
-            //Console.WriteLine("PROFUNDIDAD: " + profi);
+           
             string[] primera = new string[50];
             string juntar = "";
 
@@ -221,13 +221,13 @@ namespace ProyectoIDE
 
                 int variables = (imporden).Length;
 
-                //Console.Write( x.ToString()+"|");
+               
                 for (int y = 0; y < variables; y++)
                 {
                     if (imporden[y] == x)
                     {
 
-                        //Console.Write(imprimiraux[y].ToString());
+                       
                         juntar += imprimiraux[y].ToString();
 
                     }
@@ -236,15 +236,12 @@ namespace ProyectoIDE
                 }
                 primera[x] = juntar;
                 juntar = "";
-                //Console.WriteLine();
+               
             }
 
 
             primera[profi - 1] = proceso2(array);
-            for (int t = 0; t < profi; t++)
-            {
-                Console.WriteLine(primera[t]);
-            }
+
 
             int count = 0;
             int[] dev = new int[profi];
@@ -252,7 +249,6 @@ namespace ProyectoIDE
             {
                 count = primera[t].Split('+').Length - 1;
                 dev[t] = count;
-                //Console.WriteLine(count);
 
             }
 
@@ -270,10 +266,8 @@ namespace ProyectoIDE
                 codigo += primera[t];////
 
             }
-            //Console.WriteLine(codigo.Trim());
             char[] delimitador = { '+', ' ' };
             trozos1 = codigo.Split(delimitador);
-            //trozos1 = trozos;
 
 
             return dev;
@@ -282,7 +276,7 @@ namespace ProyectoIDE
 
 
 
-        }//TERMINA LA FUNCION 1111111111111111111111111
+        }//TERMINA LA FUNCION 
 
 
 
@@ -296,11 +290,11 @@ namespace ProyectoIDE
 
 
 
-        static string proceso2(string array)//22222222222222222222222222222222222222222222222222222222222222
+        static string proceso2(string array)//
         {
 
             int tamaño = (array).Length;
-            int fila = 0, j = 0, aux = 0, aux1 = 0, profi = 0;
+            int fila = 0, j = 0, aux1 = 0, profi = 0;
             int i = 0, p = 0;
             char[] arbol = array.ToCharArray();
 
@@ -361,7 +355,6 @@ namespace ProyectoIDE
             }
 
             profi = max + 1;
-            // Console.WriteLine("PROFUNDIDAD: " + profi);
             string[] primera = new string[50];
             string juntar = "";
 
@@ -370,13 +363,11 @@ namespace ProyectoIDE
 
                 int variables = (imporden).Length;
 
-                //Console.Write( x.ToString()+"|");
                 for (int y = 0; y < variables; y++)
                 {
                     if (imporden[y] == x)
                     {
 
-                        //Console.Write(imprimiraux[y].ToString());
                         juntar += imprimiraux[y].ToString();
 
                     }
@@ -385,15 +376,9 @@ namespace ProyectoIDE
                 }
                 primera[x] = juntar;
                 juntar = "";
-                //Console.WriteLine();
+
             }
-            for (int t = 0; t < profi; t++)
-            {
-                //Console.WriteLine(primera[t]);
-            }
-            // Console.WriteLine(primera[profi - 1]);
-            // int count = primera[profi - 1].Split('+').Length - 1;
-            // Console.WriteLine(count);
+         
             return primera[profi - 1];
 
         }//TERMINA LA FUNCION
@@ -445,8 +430,14 @@ namespace ProyectoIDE
 
         }
 
-   
+      
 
-       
-    }
+        
+
+
+        
+        }
+
+      
+    
 }

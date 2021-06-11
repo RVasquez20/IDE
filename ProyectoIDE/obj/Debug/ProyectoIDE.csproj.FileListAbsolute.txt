@@ -19,3 +19,6 @@ C:\Users\rodri\Documents\GitHub\IDE\ProyectoIDE\obj\Debug\AxInterop.AcroPDFLib.d
 C:\Users\rodri\Documents\GitHub\IDE\ProyectoIDE\obj\Debug\ProyectoIDE.csproj.ResolveComReference.cache
 C:\Users\rodri\Documents\GitHub\IDE\ProyectoIDE\obj\Debug\ProyectoIDE.DOM.resources
 C:\Users\rodri\Documents\GitHub\IDE\ProyectoIDE\obj\Debug\ProyectoIDE.csproj.AssemblyReference.cache
+C:\Users\rodri\Documents\GitHub\IDE\ProyectoIDE\bin\Debug\WinFormAnimation.dll
+C:\Users\rodri\Documents\GitHub\IDE\ProyectoIDE\bin\Debug\WinFormAnimation.xml
+C:\Users\rodri\Documents\GitHub\IDE\ProyectoIDE\obj\Debug\ProyectoIDE.Creditos.resources
